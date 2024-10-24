@@ -1,0 +1,263 @@
+*{box-sizing: border-box;}
+.listsp {width: 100%;}
+.listsp h2 {background-color: darkcyan; color: white;padding: 10px;}
+.listsp #data {display: grid; grid-template-columns: 33.3% 33.3% 33.3%;}
+.listsp #data .sp {border: 1px solid #ccc; margin: 10px; text-align: center;}
+.listsp #data .sp h4 {margin: 10px;height: 50px;}
+.listsp #data .sp h4 a {text-decoration: none; font-size: 1.1em;}
+.listsp #data .sp p {font-size: 1.2em; color: darkblue;font-weight: 600; margin: 10px;}
+.listsp #data .sp img {width: 100%; height: 250px; border: 1px solid black;}
+
+#chitietsp > h2{background-color: darkcyan; color: white; padding: 10px; font-size: 1.5em;}
+#chitietsp #data {display: grid;grid-template-columns: 35% 30% 35%;gap: 20px;font-size: 1.3em;}
+#chitietsp #data #left img {width: 100%;height: 280px;border: 1px solid black;}
+
+#listnhasx .nsx {display: grid; grid-template-columns: 100px auto 150px 150px 200px;}
+#listnhasx .nsx > * {border: 1px solid black; padding: 10px; font-size: 1.3em;}
+#listnhasx .nsx > b {background-color: darkcyan; color: white;}
+#listnhasx .nsx > *:last-child{text-align: right;}
+#listnhasx h2 a {text-decoration: none;}
+
+#listadminsp .sp {
+    display: grid;
+    grid-template-columns: 300px auto 250px 250px 200px;
+}
+
+#listadminsp .sp img {
+    width: 100%;
+    height: 160px;
+    border: 1px solid #ccc;
+}
+
+#listadminsp .sp > * {
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 1.3em;
+}
+
+#listadminsp .sp > b {
+    background-color: darkcyan;
+    color: white;
+}
+
+#listadminsp .sp > *:last-child {
+    text-align: right;
+}
+
+#listadminsp h2 a {
+    text-decoration: none;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+/* root: dai dien cho phan tu goc(html) */
+/* noi dinh nghia cac bien css toan cuc và truy cap bat cu luc nao */
+:root{
+    /* bien css tuy chinh co ten --green, gia tri cua bien la `#27ae60`. */
+    --green:#27ae60;
+    --black:#192a56;
+    --light-color:#666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+*{
+    font-family: 'Nunito',sans-serif;
+    /* loai bo toan bo le, den mac dinh cua cac phan tu */
+    margin: 0; padding: 0;
+     /*thay doi mo hinh hop  */
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border: none;
+    /* viet hoa len chu cai dau tien moi tu */
+    text-transform: capitalize;
+    /* hieu ung chuyen tiep */
+    transition: all .2s linear;
+}
+html{
+    /* kich thuoc font chu 62.5% so voi mac dinh */
+    font-size: 62.5%;
+    /* an thanh cuon ngang cua trang wed, huu ich*/
+    overflow-x: hidden;
+    /* them khoang cach dem khi cuon */
+    scroll-padding-top: 5.5rem;
+    /* cuon muot ma hon, diu mat cho nguoi xem */
+    scroll-behavior: smooth;
+}
+header{
+    position: fixed;
+    /* dau trang, keo dai tu trai sang phai */
+    top: 0; left:0; right: 0;
+    background:#fff;
+    padding: 1rem 7%;
+    display: flex;
+    /* can chinh theo truc doc(truc chinh) */
+    align-items: center;
+    /* can chinh theo truc ngang, tao khoang cac bang nhau, phan tu truoc va sau cung duoc day ve hai phia cua header */
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+header .logo{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+header .logo i{
+    color: var(--green);
+}
+header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color: var(--light-color);
+}
+header .navbar a.active,
+header .navbar a:hover{
+    color: #fff;
+    background: var(--green);
+}
+header .icons i,
+header .icons a{
+    /* con tro thanh hinh ban tay*/
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    /* chieu cao dong bang chieu cao cua lien ket, giup can giua noi dung theo chieu doc */
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    background: #eee;
+}
+header .icons i:hover,
+ header .icons a:hover{
+    color: #fff;
+    background: var(--green);
+    /* hieu ung bien doi(transform) de xoay phan tu 360 do */
+    transform: rotate(360deg);
+}
+header .icons #menu-bars{
+    display: none;
+}
+/*  */
+#search-form{
+    position: fixed;
+    top: -110%; left: 0;
+    height: 100%; width: 100%;
+    z-index: 1005;
+    background: rgba(0,0,0,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+/* css nut thoat thanh tim */
+#search-form.active{
+    top: 0;
+}
+
+#search-form #search-box{
+    width: 50rem;
+    border-bottom: .1rem solid #fff;
+    padding: 1rem 0;
+    color: #fff;
+font-size: 3rem;
+    text-transform: none;
+    background: none;
+}
+#search-form #search-box::placeholder{
+    color: #eee;
+}
+/*  search-form #search-box::-webkit-search-cancel-button: dua ra nut huy */
+/*  -webkit-appearance:none; loai bo kieu dang mac dinh cua nut huy*/
+#search-form #search-box::-webkit-search-cancel-button{
+    -webkit-appearance:none;
+}
+#search-form label{
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+}
+#search-form label:hover{
+    color: var(--green);
+}
+#search-form #close{
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    top: 2rem; right: 3rem;
+    font-size: 5rem;
+}
+/* slider */
+section{
+    margin-top: calc(6.5rem); /* Điều chỉnh theo padding và chiều cao của header */
+}
+.slider{
+    /* top: 4.5rem; */
+    position: relative;
+    width: 100%;
+    margin: auto;
+    /* ngan chan noi dung vuot qua phan ranh gioi, phan vuot qua an di */
+    overflow: hidden;
+    cursor: pointer;
+}
+.slider img{
+    width: 100%;
+    display: none;
+}
+img.displaySlide{
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.slider button{
+    position: absolute;
+    /* can chinh phan tu theo chieu doc */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background: hsla(0,0%,0%,0.5);
+    color: #eee;
+    border: none;
+    cursor: pointer;
+}
+.prev{
+    left: 0;
+}
+.next{
+    right: 0;
+}
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 1;}
+}
+/* product */
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+.btn:hover{
+    background: var(--green);
+    letter-spacing: .1rem;
+}
+.sub-heading{
+    text-align: center;
+    color: var(--green);
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+.heading{
+    text-align: center;
+    color: var(--black);
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+}
